@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Home</h3>
+    <hr>
+    {% for todo in object_list %}
+        <a href="{% url 'first:detail_todo' todo.slug %}" style="margin-right: 10px;">{{ todo.title }}</a>
+        <a href="{% url 'first:delete_todo' todo.pk %}" class="btn btn-danger">Delete</a>
+        <a href="{% url 'first:update_todo' todo.id %}" class="btn btn-primary">Update</a>
+        <br><br>
+    {% endfor %}
+
+{% endblock %}
